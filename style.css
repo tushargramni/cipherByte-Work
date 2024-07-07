@@ -13,7 +13,51 @@ body{
 .card{
     margin: auto;
     display: flex;
-    max-width: 400px;
+    min-width: 450px;
+    min-height: fit-content;
+    padding: 2rem;
+    border-radius: 1rem;
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
     flex-direction: column;
+}
+.card .input-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 3.5rem;
+    /* border: solid 2px rebeccapurple; */
+    /* background-color: rebeccapurple; */
+}
+
+.card .input-box .input{
+    width: 80%;
+    border: none;
+    outline: none;
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    height: 100%;
+    cursor: pointer;
+    
+    font-weight: 550;
+    border-radius: 5rem;
+    padding: 0 1.5rem;
+    background-color: white;
+}
+.card .input-box .input::before{
+    position: relative;
+    top: auto;
+    content: Enter place here;
+}
+.card .input-box .logo{
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: white;
 }
