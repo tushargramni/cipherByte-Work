@@ -1,0 +1,19 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+body{
+    display: grid;
+    place-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.card{
+    margin: auto;
+    display: flex;
+    max-width: 400px;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    flex-direction: column;
+}
