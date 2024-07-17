@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+      }
+      .con {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;    
+        background-color: hsla(200, 100%, 0%, 0.45);
+      }
+      span {
+        font-size: 2em;
+        font-weight: 800;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="con">
+      <span>To-Do List</span>
+      <!-- <input type="text" class="task_add" maxlength="20" /> -->
+      <ul class="list">
+        <li class="list-item" id="i-1" contenteditable="true">Task - 1</li>
+      </ul>
+      <button type="button" onclick="change()">Add task</button>
+    </div>
+    <script>
+      let count = 2;
+      let change = () => {
+        let content = prompt("Enter task", `Task - ${count}`);
+        let item_content = document.createTextNode(`${content}`);
+        let list = document.querySelector(".list");
+        let item = document.createElement("li");
+        item.setAttribute("title", `item-${count}`);
+        item.className = `item-${count}`;
+        // item.style.border = "solid 1px red ";
+        item.contentEditable = true;
+        item.appendChild(item_content);
+        console.log(item);
+        list.appendChild(item);
+        count++;
+      };
+    </script>
+  </body>
+</html>
