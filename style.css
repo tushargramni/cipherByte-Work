@@ -10,14 +10,17 @@ body{
     align-items: center;
     min-height: 100vh;
 }
+h1{
+    color: #8fd3f4;
+}
 .card{
     margin: auto;
     display: flex;
-    min-width: 450px;
+    max-width: 450px;
     min-height: fit-content;
     padding: 2rem;
     border-radius: 1rem;
-    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-image: linear-gradient(125deg,#5fd2f4 1% ,#8fd2f4 50% ,#8fd3f4 100%);
     flex-direction: column;
 }
 .card .input-box{
@@ -26,6 +29,7 @@ body{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 0.2rem;
     height: 3.5rem;
     /* border: solid 2px rebeccapurple; */
     /* background-color: rebeccapurple; */
@@ -40,7 +44,6 @@ body{
     height: 100%;
     height: 100%;
     cursor: pointer;
-    
     font-weight: 550;
     border-radius: 5rem;
     padding: 0 1.5rem;
