@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./icons/icons8-user-profile-24.png" type="image/x-icon">
+    <title>Styled Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Portfolio</div>
+      <ul class="nav-menu links">
+        <li class="nav-item">
+          <a href="#Home" class="nav-link h"><span>Home</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#About" class="nav-link A"><span>About</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#Work" class="nav-link M"><span>My Work</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="#Contact" class="nav-link C"><span>Contact</span></a>
+        </li>
+      </ul>
+      <div class="hamburger" onclick="dis()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+
+    <section class="home" id="Home">
+      <div class="sec1">
+        <p>H<span class="word">i,</span></p>
+        <p>I'm <span class="word">Tushar</span></p>
+        <p>Frontend <span class="word">Developer</span></p>
+        <a
+          class="sec1-con"
+          href="mailto:gramnitushar2002@gmail.com"
+          target="_parent"
+          >Contact</a
+        >
+        <div class="icon">
+          <a
+            href="https://www.linkedin.com/in/tushar-gramni-2304b3222/"
+            target="_parent"
+            ><img src="./icons/icons8-linkedin.svg" alt=""
+          /></a>
+          <a href="https://github.com/tushargramni" target="_parent"
+            ><img src="./icons/icons8-github.svg" alt=""
+          /></a>
+          <a href="mailto:gramnitushar2002@gmail.com" target="_parent"
+            ><img src="./icons/icons8-gmail.svg" alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="sec2">
+        <div class="img">
+          <img src="./images/tushar-bg-rm.png" alt="Tushar" />
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="About">
+      <div class="sec1">
+        <div class="img">
+          <img src="./images/tushar-bg-rm.png " alt="" />
+        </div>
+      </div>
+      <div class="sec2">
+        <p class="heading">About Section</p>
+        <ul>
+          <li><span>Name</span>:&nbsp;Tushar Gramni</li>
+          <li><span>Current-Location</span>:&nbsp;Ambala Cantt</li>
+          <li>
+            <span>Graduation in BCA</span>:&nbsp;Lovely Professional University
+          </li>
+          <li>
+            <span>Diploma in Computer Engg.</span>:&nbsp;Government Polytechnic
+            Ambala City
+          </li>
+        </ul>
+        <div class="skl">
+          <p>Skills :</p>
+          <div class="sk">
+            <ruby
+              >HTML5<rt><img src="./icons/icons8-html.svg" alt="" /></rt
+            ></ruby>
+            <ruby
+              >CSS3<rt><img src="./icons/icons8-css.svg" alt="" /></rt
+            ></ruby>
+            <ruby
+              >JavaScript<rt
+                ><img src="./icons/icons8-javascript.svg" alt="" /></rt
+            ></ruby>
+            <ruby
+              >Github<rt><img src="./icons/icons8-github.svg" alt="" /></rt
+            ></ruby>
+            <ruby
+              >vsCode<rt
+                ><img src="./icons/icons8-visual-studio-code.svg" alt="" /></rt
+            ></ruby>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="Work">
+      <h1>My Work</h1>
+      <div class="work-box">
+        <a
+          href="https://github.com/tushargramni/Tic-Tac-Toe"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/Tic-Tac-Toe.png" alt="" />
+          </figure>
+          <p class="pName">TIC-TAC-TOE</p>
+        </a>
+        <a
+          href="https://github.com/tushargramni/Login-Form"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/Login-form.png" alt="" />
+          </figure>
+          <p class="pName">LOGIN-FORM</p>
+        </a>
+        <a
+          href="https://github.com/tushargramni/Social-Profile-Card-Frontend-Mentor"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/image.png" alt="" />
+          </figure>
+          <p class="pName">Social-Profile-Card</p>
+        </a>
+        <a
+          href="https://github.com/tushargramni/Blog-Review-Card"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/blog-preview.png" alt="" />
+          </figure>
+          <p class="pName">Blog Preview Card</p>
+        </a>
+        <a
+          href="https://github.com/tushargramni/Qr-Code-Component"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/card.png" alt="" />
+          </figure>
+          <p class="pName">Qr-Code-Component</p>
+        </a>
+        <a
+          href="https://github.com/tushargramni/3-Column-Preview-Card"
+          target="_parent"
+          class="card"
+        >
+          <figure>
+            <img src="./images/3-col-card.png" alt="" />
+          </figure>
+          <p class="pName">3-Column-Preview-Card</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact" id="Contact">
+      <p>Contact Me</p>
+      <form action="get">
+        <input type="text" name="" id="" placeholder="Name" />
+        <input type="email" name="" id="" placeholder="Email-Address" />
+        <textarea name="" id="" cols="15" rows="8"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
