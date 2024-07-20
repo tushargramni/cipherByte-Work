@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     margin: 0%;
     padding: 0%;
@@ -7,7 +9,7 @@
 .container{
     min-height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, #153677,#4e085f);
+    background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
     padding: 10px;
 }
 .todo-app{
@@ -36,6 +38,14 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.1), /* Outer shadow */
+    -10px -10px 20px rgba(255, 255, 255, 0.9), /* Inner highlight */
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1), /* Inner shadow */ 
+    10px 10px 20px rgba(0, 0, 0, 0.1), /* Dark outer shadow */
+    -10px -10px 20px rgba(255, 255, 255, 0.9), /* Light outer highlight */
+    inset 5px 5px 10px rgba(0, 0, 0, 0.15), /* Dark inner shadow */
+    inset -5px -5px 10px rgba(255, 255, 255, 0.8); /* Light inner highlight */
 }
 input{
     flex: 1 ;
@@ -44,6 +54,7 @@ input{
     background: transparent;
     padding: 10px;
     font-size: 14px;
+    
 }
 button{
     border:none;
@@ -69,7 +80,7 @@ ul li::before{
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-image: url("./images/");
+    background-image: url("./images/radio_button_unchecked_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg");
     background-size: cover;
     background-position: center;
     top: 12px;
@@ -80,5 +91,5 @@ ul li.checked{
     text-decoration: line-through;
 }
 ul li.checked::before{
-    background-image: url("./images/");
+    background-image: url("./images/check_circle_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg");
 }
