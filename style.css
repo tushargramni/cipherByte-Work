@@ -7,18 +7,76 @@
     font-family: 'poppins', sans-serif;
 }
 .container{
+    position: relative;
     min-height: 100vh;
     width: 100%;
+    overflow: hidden;
     background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
     padding: 10px;
 }
+.container::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 20rem;
+    height: 20rem;
+    backdrop-filter: blur(5px);
+    background: hsla(255,100%,100%,0.45);
+    box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset 12px   12px 15px hsla(0,100%,0%,0.45);
+    border-radius: 50%;
+    animation: up-down 1s linear infinite;
+}
+@keyframes up-down {
+    100%{
+        transform: translateY(120%) scale(0);
+    }
+}    
+
+.container::after{
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    width: 20rem;
+    height: 20rem;
+    backdrop-filter: blur(5px);
+    background: hsla(255,100%,100%,0.45);
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
+    animation: down-up 1s linear infinite;
+}
+@keyframes down-up {
+    100%{
+        transform: translateY(-120%) scale(0);
+    }
+}
 .todo-app{
+    z-index: 1;
+    position: relative;
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    backdrop-filter: blur(5px);
+    background: hsla(255,100%,100%,0.45);
     margin: 100px auto 20px ;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
+    padding:1rem 2rem;
+    box-shadow: -2px -2px 1px hsla(255,100%,100%,0.45), 2px 2px 5px hsla(0,100%,0%,0.45);
+    border-radius: 10pt;
+    animation: border 1s linear infinite;
+}
+@keyframes border {
+    0%{
+        border-radius: 10pt;
+    }
+    50%{
+        border-radius: 80pt;
+    }
+    100%{
+        border-radius: 10pt 20pt 40pt 80pt / 80pt 60pt 40pt 20pt ;
+    }
+    
 }
 .todo-app h2{
     color: #002765;
@@ -34,18 +92,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #edeef0;
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
     box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.1), /* Outer shadow */
-    -10px -10px 20px rgba(255, 255, 255, 0.9), /* Inner highlight */
-    inset 5px 5px 10px rgba(0, 0, 0, 0.1), /* Inner shadow */ 
-    10px 10px 20px rgba(0, 0, 0, 0.1), /* Dark outer shadow */
-    -10px -10px 20px rgba(255, 255, 255, 0.9), /* Light outer highlight */
-    inset 5px 5px 10px rgba(0, 0, 0, 0.15), /* Dark inner shadow */
-    inset -5px -5px 10px rgba(255, 255, 255, 0.8); /* Light inner highlight */
+     5px 5px 10px rgba(0, 0, 0, 0.15), /* Dark inner shadow */
+     -5px -5pt 10px rgba(255, 255, 255, 0.45); /* Light inner highlight */
 }
 input{
     flex: 1 ;
@@ -54,7 +106,7 @@ input{
     background: transparent;
     padding: 10px;
     font-size: 14px;
-    
+    transition: all .2s linear;
 }
 button{
     border:none;
@@ -73,6 +125,7 @@ ul li{
     user-select: none;
     cursor: pointer;
     position: relative;
+    transition: all .2s linear;
 }
 ul li::before{
     content: "";
