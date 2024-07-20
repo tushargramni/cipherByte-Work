@@ -1,151 +1,201 @@
-* {
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
-  font-family: cursive;
-
-  transition: all 0.2s linear;
-}
+/* style.css */
 body {
-    display: grid;
-    gap: 0;
-    position: relative;
-  min-height: 100vh;
-  background-image: linear-gradient(125deg, #c471f5 0%, #fa71cd 100%);
-}
-
-h1 {
-  font-size: clamp(1.2rem, 1.5vw, 3rem);
-  color: white;
-  width: 100%;
-  text-align: center;
-  padding: 2rem ;
-  /* margin: 1rem auto; */
-}
-#map {
-    content: "";
-    position: absolute;
-    top: 0%;
-    z-index: -1;
-    min-height:100%;
-    width: 100%;
-}
-.card {
-  position: relative;
-  margin: auto;
+  font-family: Arial, sans-serif;
+  /* background: #e0e5ec; Subtle background color */
+  margin: 0;
+  padding: 0;
   display: flex;
-  max-width: max-content;
-  /* margin: 1rem auto; */
-  min-height: fit-content;
-  padding: 2rem;
-  border-radius: 1rem;
-  backdrop-filter: blur(10px);
-  /* background-color: purple; */
-  background: hsla(255, 100%, 100%, 0.25);
-  /* box-shadow: 2px 2px 4px hsla(0, 100%, 0%, 0.45), -2px -2px 4px hsla(0, 100%, 10%, 0.2); */
-  /* box-shadow: inset 2px 2px 4px hsla(0, 100%, 0%, 0.45),
-    inset -2px -2px 4px hsla(0, 100%, 10%, 0.2); */
-  border-radius: 50px;
-  /* background: #e0e0e0; */
-
-  box-shadow: inset 20px 20px 60px hsla(255, 100%, 100%, 0.25),
-    inset -20px -20px 60px hsla(0, 100%, 10%, 0.2);
-  border-radius: 50px;
   flex-direction: column;
-  transition: all 0.1s linear;
-  /* animation: border 1s linear infinite; */
-}
-@keyframes border {
-  0% {
-    border-radius: 5rem 3rem 6rem 5rem;
-  }
-  50% {
-    border-radius: 10rem 5rem 6rem 4rem;
-  }
-  80% {
-    border-radius: 6rem 6rem 6rem 6rem;
-  }
-  100% {
-    border-radius: 6rem 6rem 6rem 6rem;
-  }
-}
-.card:hover {
-  box-shadow: 20px 20px 60px hsla(0, 100%, 100%, 0.25),
-    -20px -20px 40px hsla(0, 100%, 0%, 0.45);
-}
-.card .input-box {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 0.2rem;
-  height: 3.5rem;
-  /* border: solid 2px rebeccapurple; */
-  /* background-color: rebeccapurple; */
+  height: 100vh;
 }
 
-.card .input-box .input {
-  width: 80%;
-  border: none;
-  outline: none;
-  display: flex;
+.waves {
   overflow: hidden;
-  height: 100%;
-  height: 100%;
-  cursor: pointer;
-  font-weight: 550;
-  border-radius: 5rem;
-  padding: 0 1.5rem;
-  color: #c471f5;
-  background-color: white;
-}
-.card .input-box .input::placeholder {
-  color: #c471f5;
-  text-transform: capitalize;
-}
-
-.card .input-box .logo {
-  display: grid;
-  place-content: center;
-  place-items: center;
-  height: 100%;
-  padding: 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  background-color: white;
-}
-.weatherImg {
+  flex: 1;
+  position: absolute;
+  z-index: -3;
+  content: "";
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  width: 100%;
+  height: 100%;
 }
-.weatherImg > img {
-  border-radius: 50%;
-  transition: all 1s linear;
+.waves .sun{
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  transition: all .2s linear;
+  animation: rotate 2s linear infinite;
 }
-.weatherImg > img:hover {
-  transform: rotate(360deg) scale(1.1);
+@keyframes rotate {
+  from{
+    transform: scale(0.5) rotate(0deg);
+  }
+  to{
+    transform: scale(1.3) rotate(720deg);
+  }
 }
+.waves .rain {
+  flex: 1;
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  height: 100vh;
+  border: solid 2px red;
+  content: "";
+}
+
+.waves .rain .lines{
+  /* position: absolute; */
+  padding: 1px;
+  z-index: 0;
+  width: 2px;
+  height: 12px;
+  transform: skew(-45deg);
+  background-color: white;
+  border-radius: 1rem ;
+  animation: rain 1s linear infinite;
+  transition: all .2s linear;
+}
+ .waves .rain .lines:nth-child(n+2){
+  margin-top: rem;
+}
+@keyframes rain {
+  100%{
+    transform: scale(1.5) translateY(200%) skew(-45deg);
+    background: linear-gradient(45deg,#08AAE1,#90DDF0);
+  }
+}
+.waves .cloud {
+  flex: 1;
+  content: "";
+}
+
+h1 {
+  margin: 20px 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  font-weight: 900;
+  background: linear-gradient(90deg,#AFECF6,white,#01CBE1,white);
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+}
+
+.card {
+  backdrop-filter: blur(10px);
+  border-radius: 20pt;
+  box-shadow: 15px 15px 20px #343434, -5px -5px 50px #ffffff;
+  padding: 20px;
+  width: 80%;
+  /* margin: auto; */
+  overflow: auto;
+  max-width: 600px;
+  position: relative;
+}
+
+.input-box {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  background: #ffffff; /* Bright background for input box */
+  border-radius: 15pt;
+  box-shadow: inset 5px 5px 10px #d0d8e0, inset -5px -5px 10px #ffffff;
+  padding: 5px 10px ;
+  margin-bottom: 20px;
+}
+
+.input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  flex: 1;
+}
+
+.logo img {
+  max-width: 24px;
+  max-height: 24px;
+  cursor: pointer;
+}
+
 .content {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  align-items: start;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  width: 100%;
-  color: white;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .box {
+  background: #08aae1; /*Bright background for boxes */
+  border-radius: 15px;
+  box-shadow: 10px 10px 20px #c4c9d4, -10px -10px 20px #ffffff;
+  padding: 15px;
   display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: start;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  /* border: solid 2px whitesmoke; */
+  gap: 10px;
+  flex: 1;
+}
+
+.box img {
+  width: 24px;
+  height: 24px;
+}
+
+.box p {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: white;
+}
+
+.box p:first-child {
+  font-weight: bold;
+}
+
+#searchIcon {
+  cursor: pointer;
+}
+
+#searchIcon img {
+  max-width: 24px;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background-color: #08aae1;
+  height: 24px;
+}
+
+button {
+  background: #08aae1;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 10px 10px 20px #c4c9d4, -10px -10px 20px white;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1;
+}
+
+button img {
+  width: 40px;
+  height: 40px;
+}
+.precise {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1;
+  border-radius: 50%;
+  cursor: pointer;
 }
