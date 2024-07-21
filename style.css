@@ -10,6 +10,7 @@
     position: relative;
     min-height: 100vh;
     width: 100%;
+    display: flex;
     overflow: hidden;
     background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
     padding: 10px;
@@ -20,17 +21,18 @@
     top: 0;
     left: 0;
     z-index: 0;
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     backdrop-filter: blur(5px);
-    background: hsla(255,100%,100%,0.45);
+    background: hsla(0,0%,0%,0.1);
     box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset 12px   12px 15px hsla(0,100%,0%,0.45);
-    border-radius: 50%;
+    border-radius: 25pt;
     animation: up-down 1s linear infinite;
 }
 @keyframes up-down {
     100%{
-        transform: translateY(120%) scale(0);
+        border-radius: 50%;
+        transform: translateY(120%) scale(0) rotate(720deg);
     }
 }    
 
@@ -42,28 +44,31 @@
     z-index: 0;
     width: 20rem;
     height: 20rem;
+    width: 18rem;
+    height: 18rem;
     backdrop-filter: blur(5px);
-    background: hsla(255,100%,100%,0.45);
-    border-radius: 50%;
+    background: hsla(0,0%,0%,0.1);
     box-shadow: inset 2px 2px 5px hsla(255,100%,100%,0.45),inset -12px -12px 15px hsla(0,100%,0%,0.45);
     animation: down-up 1s linear infinite;
 }
 @keyframes down-up {
     100%{
-        transform: translateY(-120%) scale(0);
+        border-radius: 50%;
+        transform: translateY(-120%) scale(0) rotate(12260deg);
     }
 }
 .todo-app{
     z-index: 1;
     position: relative;
     width: 100%;
+    max-height: 520px;
     max-width: 540px;
     backdrop-filter: blur(5px);
-    background: hsla(255,100%,100%,0.45);
-    margin: 100px auto 20px ;
-    padding:1rem 2rem;
+    background: hsla(255,100%,100%,0.65);
+    margin: auto;
+    padding:2rem;
     box-shadow: -2px -2px 1px hsla(255,100%,100%,0.45), 2px 2px 5px hsla(0,100%,0%,0.45);
-    border-radius: 10pt;
+    border-radius: 50pt;
     animation: border 1s linear infinite;
 }
 @keyframes border {
@@ -71,17 +76,57 @@
         border-radius: 10pt;
     }
     50%{
-        border-radius: 80pt;
+        border-radius: 50pt  75pt;
     }
     100%{
-        border-radius: 10pt 20pt 40pt 80pt / 80pt 60pt 40pt 20pt ;
+        border-radius: 10pt 20pt 40pt 80pt / 80pt 60pt 10pt 20pt ;
+    }
+    
+}
+.todo-app::before{
+    content: "";
+    position: absolute;
+    width: 50px;
+    right:0%;
+    top: 0%;
+    border-radius: 5pt 15pt ;
+    height: 50px;
+    /* background: radial-gradient(); */
+    background: conic-gradient(#4CC3FF,#5BA6F2,#7C64D5,#FF057C);
+    animation: step 2s steps(4) infinite;
+}
+@keyframes step {
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+.todo-app::after{
+    content: "";
+    position: absolute;
+    width: 50px;
+    left:0%;
+    bottom: 0%;
+    border-radius: 5pt 15pt ;
+    height: 50px;
+    /* background: radial-gradient(); */
+    background: conic-gradient(#4CC3FF,#5BA6F2,#7C64D5,#FF057C);
+    animation: step 2s steps(4) infinite;
+}
+@keyframes step {
+    100%{
+        transform: rotate(-360deg);
     }
     
 }
 .todo-app h2{
-    color: #002765;
     display: flex;
+    color: transparent;
+    width: max-content;
+    background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
+    -webkit-background-clip: text;
     align-items: center;
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 .todo-app h2 img{
@@ -92,12 +137,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 30px;
+    overflow: hidden;
+    background-color: hsla(255,100%,100%,0.45);
+    border-radius: 5pt;
     padding-left: 20px;
     margin-bottom: 25px;
+    transition: all .2s linear;
     box-shadow: 
-     5px 5px 10px rgba(0, 0, 0, 0.15), /* Dark inner shadow */
-     -5px -5pt 10px rgba(255, 255, 255, 0.45); /* Light inner highlight */
+     -5px -5px 10px rgba(0, 0, 0, 0.45), /* Dark inner shadow */
+     5px 5pt 10px rgba(255, 255, 255, 0.45); /* Light inner highlight */
 }
 input{
     flex: 1 ;
@@ -112,18 +160,45 @@ button{
     border:none;
     outline: none;
     padding: 16px 50px;
-    background:#ff5945;
+    background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
+    /* background-image: repeating-conic-gradient( #4CC3FF 10%,  #7C64D5 20%,#FF057C 30%); */
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 40px;
+    transition: all .2s linear;
+}
+button:hover{
+    background-image: linear-gradient(-225deg, #4CC3FF 0% , #7C64D5 48%,#FF057C 100%);
+}
+ul{
+    max-height: 200px;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-align: start;
+}
+::-webkit-scrollbar-track{
+    background-image: linear-gradient(-225deg, #FF057C 0%, #7C64D5 48%, #4CC3FF 100%);
+}
+::-webkit-scrollbar{
+    width: 5px;
+    position: relative;
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb{
+    position: absolute;
+    content: "";
+    border-radius: 1rem;
+    backdrop-filter: blur(5px);
+    background-image: linear-gradient(-225deg, #4CC3FF 0%, #7C64D5 48%, #FF057C 100%);
 }
 ul li{
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 12px 50px;
+    padding: 12px 8px 12px 45px;
     user-select: none;
     cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 40px;
     position: relative;
     transition: all .2s linear;
 }
@@ -141,8 +216,25 @@ ul li::before{
 }
 ul li.checked{
     color: #555;
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 ul li.checked::before{
     background-image: url("./images/check_circle_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg");
+}
+ul li span{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 34px;
+    color: #6494EB;
+    line-height: 40px;
+    text-align: center;
+    transition: all .1s linear;
+}
+ul li span:hover{
+    border-radius: 50%;
+    color: #FF057C;
+    background: white;
 }
