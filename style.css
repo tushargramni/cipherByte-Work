@@ -56,11 +56,11 @@ body {
   /* position: absolute; */
   padding: 1px;
   z-index: 0;
-  width: 2px;
-  height: 12px;
-  transform: skew(-45deg);
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg) scale(0.2);
   background-color: white;
-  border-radius: 1rem ;
+  border-radius: 1rem  0rem 1rem 1rem;
   animation: rain 1s linear infinite;
   transition: all .2s linear;
 }
@@ -69,10 +69,11 @@ body {
 }
 @keyframes rain {
   100%{
-    transform: scale(1.5) translateY(200%) skew(-45deg);
+    transform: scale(1.2) translateY(200%) rotate(-45deg);;
     background: linear-gradient(45deg,#08AAE1,#90DDF0);
   }
 }
+
 .waves .cloud {
   flex: 1;
   content: "";
@@ -81,6 +82,7 @@ body {
 h1 {
   margin: 20px 0;
   padding: 1rem;
+  font-size: 2rem;
   border-radius: 1rem;
   backdrop-filter: blur(10px);
   font-weight: 900;
