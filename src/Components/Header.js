@@ -3,8 +3,10 @@ import React from "react";
 export default function Header() {
   return (
     <div>
-      <h1>Welcome To EmporifyX.</h1>
-      <p>
+      <h1 className="bg-primary text-light text-center rounded-2 p-5 fs-1">
+        Welcome To EmporifyX.
+      </h1>
+      <p className="">
         EmporifyX is an ambitious project aimed at developing a robust and
         user-friendly e-commerce website that caters to both merchants and
         customers. This platform will provide a seamless online shopping

@@ -34,31 +34,10 @@ export default function Navbar() {
                   Products
                 </a>
               </li>
-              <li className="nav-item dropdown mx-2">
-                <a
-                  classNameName="nav-link dropdown-toggle"
-                  href="/"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+              <li className="nav-item mx-2">
+                <a className="nav-link" href="/">
                   Services
                 </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Home Delivery
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Online Cash Payment
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li className="nav-item mx-2">
                 <a className="nav-link" href="/">
@@ -73,7 +52,7 @@ export default function Navbar() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button className="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-primary" type="submit">
                 Search
               </button>
             </form>
