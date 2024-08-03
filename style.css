@@ -1,36 +1,63 @@
 /* style.css */
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  /* background: #e0e5ec; Subtle background color */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  scroll-snap-type: proximity;
   min-height: 100vh;
+  padding: 2rem 0;
   width: 100%;
+  background-image: url("./icon/Cloud.svg") ;
+  overflow: auto;
+  background-position: center;
+  background-repeat: repeat;
+  animation: cloudy 1.25s linear infinite;
+}
+
+@keyframes cloudy {
+  from{
+    background-image: url("./icon/Cloud.svg") ;
+    background-position: center;
+    background-repeat: repeat;
+  }
+  to{
+    background-image: url("./icon/Cloud.svg") ;
+    background-position: start;
+    background-size: cover;
+    background-repeat: repeat;
+  }
 }
 ::-webkit-scrollbar{
-  width: 5px;
-  border-radius: 5px;
+  width: 25px;
+  border-radius: 1rem;
   background-color: #fff;
 }
 ::-webkit-scrollbar-thumb{
+  border-radius: 1rem;
   background-color: #01cbe1;
 }
 
 .waves {
-  overflow: hidden;
-  flex: 1;
-  position: absolute;
-  z-index: -3;
-  content: "";
+  position: absolute;  
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: inherit;
-  height: inherit;
+  top: 0;
+  z-index: -3;
+  background-image: url("./icon/NewRain.svg");
+  background-repeat: repeat;
+  background-position: center;
+  content: "";
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 100%;
 }
 .waves .sun {
   position: absolute;
@@ -51,76 +78,38 @@ body {
 .waves .rain {
   flex: 1;
   position: absolute;
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
+  z-index: -3;
+  top: 0;
   display: flex;
   gap: 2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
   flex-wrap: wrap;
-  height: max-content;
-  border: solid 2px red;
+  height: 100vh;
   content: "";
-}
+  /* border: solid 2px rebeccapurple; */
 
-.waves .rain .lines:nth-child(even) {
-  /* position: absolute; */
-  padding: 1px;
-  z-index: 0;
-  width: 12px;
-  height: 12px;
-  transform: rotate(-45deg) scale(0.2);
-  background-color: white;
-  border-radius: 1rem 0rem 1rem 1rem;
+}
+.waves .rain img{
+  width: 15px;
   animation: rain 1s linear infinite;
   transition: all 0.2s linear;
 }
 
+
 @keyframes rain {
+  0%{
+    image-orientation:initial;
+  }
   100% {
-    transform: scale(1.2) translateY(200%) rotate(-45deg);
-    background: linear-gradient(45deg, #08aae1, #90ddf0);
+    image-orientation: flip;
+    transform: scale(1.8) translateY(200%) ;
   }
 }
-.alert {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 3;
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  display: flex;
-  cursor: pointer;
-  flex-direction: column;
-  color: white;
-  transition: all 0.2s linear;
-  background: #08aae1;
-  border-radius: 1.18rem;
-}
-.alert img {
-  width: 14px;
-  padding: 8px;
-  background: #fff;
-  border-radius: 50%;
-  transition: all 0.2s linear;
-}
-.alert ul {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: auto 1rem;
-  padding: 1rem;
-}
-.alert:hover {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  height: max-content;
-}
 
-.waves .cloud {
-  flex: 1;
-  content: "";
-}
+
 
 h1 {
   margin: 20px 0;
@@ -129,9 +118,11 @@ h1 {
   border-radius: 1rem;
   backdrop-filter: blur(10px);
   font-weight: 900;
-  background: linear-gradient(90deg, #afecf6, white, #01cbe1, white);
-  background-clip: text;
-  color: transparent;
+  color: #08aae1;
+  background-color: #fff;
+  /* background: linear-gradient(90deg, #afecf6, white, #01cbe1, white); */
+  /* background-clip: text; */
+  /* color: transparent; */
   text-align: center;
 }
 
@@ -139,11 +130,11 @@ h1 {
   backdrop-filter: blur(10px);
   border-radius: 20pt;
   box-shadow: 15px 15px 20px #343434, -5px -5px 50px #ffffff;
-  padding: 20px;
+  padding: 15px;
   width: 80%;
   margin: auto;
   overflow: auto;
-  max-width: 550px;
+  max-width: 800px;
   position: relative;
 }
 
@@ -154,7 +145,7 @@ h1 {
   background: #ffffff; /* Bright background for input box */
   border-radius: 15pt;
   justify-content: space-between;
-  box-shadow: inset 5px 5px 10px #d0d8e0, inset -5px -5px 10px #ffffff;
+  box-shadow: inset -5px -5px 10px #d0d8e0, inset 5px 5px 10px #ffffff;
   padding: 5px 8px ;
   margin-bottom: 20px;
 }
@@ -164,20 +155,29 @@ h1 {
   background: transparent;
   display: flex;
   font-size: 16px;
-  width: calc(100% - 24px);
-  color: #333;
+  width: calc(100% - 32px);
+  color: #08aae1;
   outline: none;
-  margin: 0 1rem;
+  accent-color: #08aae1;
+  margin:auto ;
   overflow: hidden;
-  /* border: solid 2px red; */
-  flex: 1fr;
+  flex: 1;
 }
 
-.logo img {
-  flex: 1fr;
-  max-width: 24px;
-  max-height: 24px;
+#searchIcon {
+  padding: 0.1rem;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
   cursor: pointer;
+  background-color: #08aae1;
+}
+
+#searchIcon img {
+  width: 100%;
+  height: 100%;
 }
 
 .content {
@@ -189,42 +189,35 @@ h1 {
 .box {
   background: #08aae1; /*Bright background for boxes */
   border-radius: 15px;
-  box-shadow: 10px 10px 20px #c4c9d4, -10px -10px 20px #ffffff;
-  padding: 15px;
+  box-shadow:inset 10px 10px 20px #08aae1,inset -10px -10px 20px #ffffff;
+  padding: 12px;
+  color: white;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  justify-content:start;
   align-items: center;
-  gap: 10px;
   flex: 1;
 }
 
 .box img {
   width: 40px;
   height: 40px;
+  margin: 1rem auto;
+  border-radius: 50%;
 }
 
 .box p {
   display: flex;
   flex-direction: column;
-  margin: 0;
-  color: white;
+  margin: 5px;
+  
 }
 
-.box p:first-child {
-  font-weight: bold;
+.box span{
+  font-weight:bold;
 }
 
-#searchIcon {
-  cursor: pointer;
-}
-
-#searchIcon img {
-  max-width: 24px;
-  padding: 0.5rem;
-  border-radius: 50%;
-  background-color: #08aae1;
-  height: 24px;
-}
 
 button {
   background: #08aae1;
