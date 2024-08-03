@@ -2,6 +2,11 @@
 *{
   margin: 0%;
   padding: 0%;
+  scroll-behavior: smooth;
+  scroll-snap-align: start;
+  scroll-snap-type: proximity;
+  user-select: none;
+  -webkit-user-drag: none;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -73,8 +78,8 @@ body {
   flex-wrap: wrap;
 }
 .waves .rain .lines{
-  width: 18px;
-  height: 18px;
+  width: 10px;
+  height: 10px;
   background-position: center;
   background-size: cover;
   transform: scale(0.2);
@@ -83,12 +88,13 @@ body {
 }
 @keyframes rain{
   0%{
-    transform: scale(0.1);
+    transform: scale(0.2);
   }
   100%{
-    transform: scale(0.2) translateY(200%);
+    transform: scale(0.4) translateY(200%);
   }
 }
+
 .waves .sun {
   position: absolute;
   top: 0;
