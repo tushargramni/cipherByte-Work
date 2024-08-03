@@ -29,7 +29,7 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     let humid = document.querySelector(".humidity");
     let windSpeed = document.querySelector(".wind");
     let place = document.querySelector(".place");
-    console.log(`Fetching data from URL: ${url}`); // Log URL for debugging
+    // console.log(`Fetching data from URL: ${url}`); // Log URL for debugging
     const response = await fetch(url);
     if (!response.ok) {
       // Check if the response is OK (status code 200-299)
@@ -67,3 +67,26 @@ function isCityStateCountry(value) {
   const regex = /^[a-zA-Z\s\-]+$/; // Allows letters, spaces, and hyphens
   return regex.test(value);
 }
+
+setInterval(() => {
+  changes();
+}, 1000);
+let changes = () => {
+  let rain = document.querySelector(".rain");
+  let rainElement = document.querySelector(".waves");
+  let oriWidth = document.querySelector("body").clientWidth;
+  let oriHeight = document.querySelector("body").clientHeight;
+
+  // Update the width and height of the .waves element
+  rainElement.style.width = oriWidth + "px";
+  rainElement.style.height = oriHeight + "px";
+  rain.style.width = oriWidth + "px";
+  rain.style.height = oriHeight + "px";
+  // console.log(
+  //   oriWidth,
+  //   oriHeight,
+  //   "  space",
+  //   rainElement.style.width,
+  //   rainElement.style.height
+  // );
+};
