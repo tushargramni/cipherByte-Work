@@ -1,17 +1,17 @@
 document.querySelector("#searchIcon").addEventListener("click", async () => {
   const inputValue = document.querySelector("input").value.trim(); // Get and trim input value
-  const apiKey = "ea9ede7b95a7aa13798ef438854700f4"; // your OpenWeatherMap API key
+  const apiKey = "2BMTTMMRPH3GUDVK5FQZSBJ5H"; // Your Visual Crossing Weather API key
   let url;
 
   if (isCoordinates(inputValue)) {
     const [lat, lon] = inputValue.split(",").map((coord) => coord.trim());
-    url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}?unitGroup=metric&key=${apiKey}&contentType=json`;
   } else if (isCityStateCountry(inputValue)) {
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+    url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(
       inputValue
-    )}&appid=${apiKey}&units=metric`;
+    )}?unitGroup=metric&key=${apiKey}&contentType=json`;
   } else {
-    alert("Invalid input format , enter something");
+    alert("Invalid input format, enter something");
     return; // Exit if input format is invalid
   }
 
@@ -28,7 +28,6 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     let ltemp = document.querySelector(".lowtemp");
     let humid = document.querySelector(".humidity");
     let windSpeed = document.querySelector(".wind");
-    let place = document.querySelector(".place");
     // console.log(`Fetching data from URL: ${url}`); // Log URL for debugging
     const response = await fetch(url);
     if (!response.ok) {
@@ -37,12 +36,18 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     }
     const data = await response.json();
     console.log(data); // handle the weather data
-    htemp.innerHTML = data.main;
-    humid.innerHTML = data.main.humidity;
-    windSpeed.innerHTML = data.wind.speed;
-    htemp.innerHTML = "Max: " + data.main.temp_max;
-    feel.innerHTML = "Feel Like: " + data.main.feels_like;
-    ltemp.innerHTML = "Min: " + data.main.temp_min;
+
+    if (!data || !data.days || data.days.length === 0) {
+      throw new Error("No weather data available for the provided location.");
+    }
+
+    // Update elements with weather data
+    htemp.innerHTML = "Max: " + data.days[0].tempmax + "°C";
+    feel.innerHTML = "Feel Like: " + data.days[0].feelslike + "°C";
+    ltemp.innerHTML = "Min: " + data.days[0].tempmin + "°C";
+    humid.innerHTML = "Humidity: " + data.days[0].humidity + "%";
+    windSpeed.innerHTML = "Wind Speed: " + data.days[0].windspeed + " km/h";
+    // place.innerHTML = "Location: " + data.resolvedAddress;
   } catch (error) {
     console.error("Error fetching the weather data:", error);
     alert(
@@ -71,6 +76,7 @@ function isCityStateCountry(value) {
 setInterval(() => {
   changes();
 }, 1000);
+
 let changes = () => {
   let rain = document.querySelector(".rain");
   let rainElement = document.querySelector(".waves");
@@ -82,11 +88,4 @@ let changes = () => {
   rainElement.style.height = oriHeight + "px";
   rain.style.width = oriWidth + "px";
   rain.style.height = oriHeight + "px";
-  // console.log(
-  //   oriWidth,
-  //   oriHeight,
-  //   "  space",
-  //   rainElement.style.width,
-  //   rainElement.style.height
-  // );
 };
