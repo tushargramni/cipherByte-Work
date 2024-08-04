@@ -28,6 +28,7 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     let ltemp = document.querySelector(".lowtemp");
     let humid = document.querySelector(".humidity");
     let windSpeed = document.querySelector(".wind");
+    let desc = document.querySelector(".desc");
     // console.log(`Fetching data from URL: ${url}`); // Log URL for debugging
     const response = await fetch(url);
     if (!response.ok) {
@@ -47,6 +48,7 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     ltemp.innerHTML = "Min: " + data.days[0].tempmin + "°C";
     humid.innerHTML = "Humidity: " + data.days[0].humidity + "%";
     windSpeed.innerHTML = "Wind Speed: " + data.days[0].windspeed + " km/h";
+    desc.innerHTML = "Description: " + data.days[0].description;
     // place.innerHTML = "Location: " + data.resolvedAddress;
   } catch (error) {
     console.error("Error fetching the weather data:", error);
