@@ -29,14 +29,16 @@ document.querySelector("#searchIcon").addEventListener("click", async () => {
     let humid = document.querySelector(".humidity");
     let windSpeed = document.querySelector(".wind");
     let desc = document.querySelector(".desc");
+
     // console.log(`Fetching data from URL: ${url}`); // Log URL for debugging
     const response = await fetch(url);
+
     if (!response.ok) {
       // Check if the response is OK (status code 200-299)
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    console.log(data); // handle the weather data
+    // console.log(data); // handle the weather data
 
     if (!data || !data.days || data.days.length === 0) {
       throw new Error("No weather data available for the provided location.");

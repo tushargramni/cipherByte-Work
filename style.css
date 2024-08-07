@@ -167,9 +167,12 @@ span {
   overflow: auto;
   max-width: 800px;
   position: relative;
+  transition: all .18s linear;
 
 }
-
+.card:hover{
+  box-shadow:inset -15px -15px 20px transparent,inset 5px 5px 50px #ffffff;
+}
 .input-box {
   display: flex;
   max-width: 100%;
@@ -254,31 +257,38 @@ span {
   padding: 0;
   padding-top: 20px;
   padding-bottom: 5px;
-  background: rgba(255, 255, 255, 0.1); 
-  /* background: #08aae1; */
+  background: rgba(255, 255, 255, 0.24); 
+  background: #08aae1;
   border-radius: 1rem;
   margin: auto;
   gap: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px -4px 6px rgba(0, 0, 0, 0.1),inset  -4px -4px 6px #d0d8e0;
   backdrop-filter: blur(10px); 
   -webkit-backdrop-filter: blur(10px); 
   border: 1px solid rgba(255, 255, 255, 0.2); 
-  color: white;
+  color: #fff;
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content:center;
   align-items: center;
 }
+.box:hover{
+  box-shadow:inset -4px -4px 6px rgba(0, 0, 0, 0.1), inset 4px 4px 6px #d0d8e0;
+  backdrop-filter: blur(10px); 
+}
+.box > *{
+cursor: pointer;  
 
-
+}
 .box img {
   width: 40px;
   height: 40px;
   margin: auto;
   border-radius: 50%;
   transition: all .2s linear;
-  border-bottom: solid 2pt white;
+  border-right: solid 2pt white;
+  border-left: solid 2pt white;
 }
 .box img:hover {
   border: solid 1pt white;
@@ -294,10 +304,11 @@ span {
   text-align: center;
   padding: 5px;
   margin-bottom: 5px;
-  border-bottom: solid 2pt white;
+  border-right: solid 2pt white;
+  border-left: solid 2pt white;
   font-size: large;
   font-weight:bold;
-  transition: all .2s linear ;
+  transition: all .1s linear ;
 }
 
 

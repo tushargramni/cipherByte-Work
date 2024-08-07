@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="./icon/sun.svg" type="image/x-icon">
     <title>Document</title>
 </head>
-<body onload="changes()">
+<body >
     <div class="waves">
         <img class="sun" src="./icon/sun.svg" alt="">
         <div class="rain">
@@ -133,7 +133,6 @@
             <div class="lines"></div>
             <div class="lines"></div>
             <div class="lines"></div>
-            
             <div class="lines"></div>
             <div class="lines"></div>
             <div class="lines"></div>
@@ -269,28 +268,27 @@
             <div class="box" >
                 <img src="./icon/temperature.svg" alt="">
                 <span>Temperature</span>
-                    <div class="tempbox" style="display: flex; flex-direction: column;">
-                        <p class="feel"></p>
-                        <p class="hightemp"></p>
-                        <p class="lowtemp"></p>
+                    <div class="tempbox" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+                        <p style="display: flex; flex-direction: column; flex-wrap: wrap;" class="feel"></p>
+                        <p style="display: flex; flex-direction: column; flex-wrap: wrap;" class="hightemp"></p>
+                        <p style="display: flex; flex-direction: column; flex-wrap: wrap;" class="lowtemp"></p>
                     </div>                    
             </div>
             
             <div class="box" >
                 <img src="./icon/humidity.png" alt="">
-                    <span>Humidity</span>
-                    <p class="humidity"></p>
+                <span>Humidity</span>
+                <p class="humidity" style="display: flex; flex-direction: column; flex-wrap: wrap;"></p>
             </div>
             
             <div class="box">
                 <img src="./icon/wind.png" alt="">
-                    <span>Wind speed</span>
-                    <p class="wind"></p>
+                <span>Wind speed</span>
+                <p class="wind" style="display: flex; flex-direction: column; flex-wrap: wrap;"></p>
             </div>
-            
             <div class="box">
-                    <span>Description</span>
-                    <p class="desc"></p>
+                <span>Description</span>
+                <p class="desc" style="display: flex; flex-direction: column; flex-wrap: wrap;"></p>
             </div>
         </div>
     </div>
